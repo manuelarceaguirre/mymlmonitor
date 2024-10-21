@@ -24,7 +24,7 @@ const FileUpload = () => {
         formData.append('file', file);
 
         const API_URL = process.env.NODE_ENV === 'production' 
-            ? 'https://mymlmonitor.vercel.app' 
+            ? 'https://mymlmonitor.vercel.app/upload' 
             : 'http://127.0.0.1:5000/upload';
 
         const response = await fetch(API_URL, {

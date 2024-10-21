@@ -4,6 +4,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def home():
+    return "Welcome to the Model Drift Detection API"
+
 @app.route('/upload', methods=['POST'])
 def upload_data():
     data = request.files.get('file')
