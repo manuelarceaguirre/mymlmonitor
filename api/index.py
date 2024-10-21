@@ -1,11 +1,13 @@
-from flask import Flask
+from flask import Flask, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route('/')
-def home():
-    return 'Hello, World!'
+@app.route('/upload', methods=['POST'])
+def upload_data():
+    data = request.get_json()
+    return {"status": "Data received", "message":"Model drift detection will be performed"}
 
-@app.route('/about')
-def about():
-    return 'About'
+if __name__ == "__main__":
+    app.run(debug=True)
