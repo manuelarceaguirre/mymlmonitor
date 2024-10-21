@@ -6,8 +6,10 @@ CORS(app)
 
 @app.route('/upload', methods=['POST'])
 def upload_data():
-    data = request.get_json()
-    return {"status": "Data received", "message":"Model drift detection will be performed"}
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    # Handle form data and detect model drift here
+    data = request.files.get('file')
+    if not data:
+        return {"error": "No file uploaded"}, 400
+    
+    # Process CSV file here and check for model drift
+    return {"status": "Data received", "message": "Model drift detection will be performed"}
