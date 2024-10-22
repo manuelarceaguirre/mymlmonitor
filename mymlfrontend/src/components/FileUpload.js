@@ -23,9 +23,9 @@ const FileUpload = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const API_URL = process.env.NODE_ENV === 'production' 
-            ? '/upload' 
-            : 'http://127.0.0.1:5000/upload';
+        const API_URL = process.env.NODE_ENV === 'production'
+        ? '/api/upload' 
+        : 'http://127.0.0.1:5000/upload';      
 
         const response = await fetch(API_URL, {
             method: 'POST',

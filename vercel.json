@@ -7,21 +7,22 @@
     },
     {
       "src": "mymlfrontend/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": { "distDir": "mymlfrontend/build" }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "api/index.py"
+      "dest": "/api/index.py"
     },
     {
       "src": "/upload",
-      "dest": "api/index.py"
+      "dest": "/api/index.py"
     },
     {
       "src": "/(.*)",
-      "dest": "mymlfrontend/$1"
+      "dest": "/mymlfrontend/$1"
     }
   ]
 }
