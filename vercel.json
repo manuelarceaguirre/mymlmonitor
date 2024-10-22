@@ -17,10 +17,6 @@
       "dest": "/api/index.py"
     },
     {
-      "src": "/upload",
-      "dest": "/api/index.py"
-    },
-    {
       "src": "/(.*)",
       "dest": "/mymlfrontend/$1"
     }
