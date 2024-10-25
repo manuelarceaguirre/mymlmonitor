@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/mymlfrontend/build/index.html"
+      "dest": "/mymlfrontend/build/$1"
     }
   ]
 }
