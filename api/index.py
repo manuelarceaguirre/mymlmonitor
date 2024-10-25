@@ -16,3 +16,10 @@ def upload_data():
 
     # Process CSV file here and check for model drift
     return {"status": "Data received", "message": "Model drift detection will be performed"}
+
+from werkzeug.middleware.proxy_fix import ProxyFix
+
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1)
+
+if __name__ == '__main__':
+    app.run(debug=False)
