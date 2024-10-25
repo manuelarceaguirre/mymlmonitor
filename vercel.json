@@ -8,7 +8,7 @@
     {
       "src": "mymlfrontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "mymlfrontend/build" }
+      "config": { "distDir": "build" }
     }
   ],
   "routes": [
@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/mymlfrontend/build/$1"
+      "dest": "/build/$1"
     }
   ]
 }
