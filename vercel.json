@@ -8,7 +8,10 @@
     {
       "src": "mymlfrontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "mymlfrontend/build" }
+      "config": {
+        "distDir": "mymlfrontend/build",
+        "buildCommand": "cd mymlfrontend && npm install && npm run build"
+      }
     }
   ],
   "routes": [
@@ -17,8 +20,28 @@
       "dest": "/api/index.py"
     },
     {
-      "src": "/(.*)",
-      "dest": "/mymlfrontend/build/index.html"
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "^/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "^/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "^/asset-manifest.json",
+      "dest": "/asset-manifest.json"
+    },
+    {
+      "src": "^/(.*)\\.(?:png|jpg|jpeg|gif|ico|json|js|css)$",
+      "dest": "/$1.$2"
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
